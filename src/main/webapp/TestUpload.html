@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+qeqew
+<div class="divUploader">
+    <input type="button" id="swfu-placeholder" />
+</div>
+<div><input type="button" onclick="upload1()" value="上传" /></div>
+</body>
+<style>
+    .msUploadImgs{margin: 0;padding: 0;list-style: none;}
+    .msUploadImgs li {list-style:none;float: left;text-align: center;border: 1px solid #F3F3F3;margin: 8px; width:100px;}
+    .msUploadImgs img {width:100%; height:100px;}
+    .msUploadImgs li span {cursor: pointer;}
+    .divUploader{clear:both;}
+</style>
+<script type="text/javascript" src="/static/plugins/jquery/1.9.1/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/static/plugins/jquery.swfupload/1.0.0/swfupload.js"></script>
+<script>
+    var swfu;
+    $(function(){
+        var swfuOption = {//swfupload选项
+            upload_url: "http://localhost:8089/file/upload.do",
+            flash_url: "http://localhost:8089/static/plugins/jquery.swfupload/1.0.0/swfupload.swf",
+            button_placeholder_id : "swfu-placeholder",//上传按钮占位符的id
+            button_image_url: "http://localhost:8089/static/plugins/jquery.swfupload/1.0.0/button.png",
+            file_size_limit : "20480",//用户可以选择的文件大小，有效的单位有B、KB、MB、GB，若无单位默认为KB
+            button_width: 92, //按钮宽度
+            button_height: 34
+        }
+        swfu = new SWFUpload(swfuOption);//初始化并将swfupload按钮替换swfupload占位符
+        alert(123)
+    })
+
+    function upload1(){
+        swfu.startUpload();
+    }
+</script>
+
+</html>
